@@ -9,8 +9,10 @@ const VideoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  category: mongoose.Schema.Types.ObjectId,
-  ref: 'Categories',
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Categories',
+  },
 });
 
 export default mongoose.model('Videos', VideoSchema);
