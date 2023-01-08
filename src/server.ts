@@ -4,12 +4,13 @@ import { buildSchema } from 'type-graphql';
 import { ApolloServer } from 'apollo-server';
 
 import CategoryResolver from './graphql/category/CategoryResolver';
+import VideoResolver from './graphql/video/VideoResolver';
 
 import './utils/connection';
 
 async function bootstrap() {
   const schema = await buildSchema({
-    resolvers: [CategoryResolver],
+    resolvers: [CategoryResolver, VideoResolver],
   });
 
   const server = new ApolloServer({ schema });
