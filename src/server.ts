@@ -3,11 +3,13 @@ import 'reflect-metadata';
 import { buildSchema } from 'type-graphql';
 import { ApolloServer } from 'apollo-server';
 
+import CategoryResolver from './graphql/category/CategoryResolver';
+
 import './utils/connection';
 
 async function bootstrap() {
   const schema = await buildSchema({
-    resolvers: [],
+    resolvers: [CategoryResolver],
   });
 
   const server = new ApolloServer({ schema });
