@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
 
 mongoose.connect(
-  'mongodb+srv://admin:7JCzwcjFnDZRcIRV@cluster0.vkauin2.mongodb.net/test?retryWrites=true&w=majority'
+  'mongodb+srv://admin:admin@cluster0.ous9j0r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 );
