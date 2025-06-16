@@ -1,8 +1,20 @@
-import { Arg, Field, InputType, Mutation, Query, Resolver } from 'type-graphql';
+import {
+  Arg,
+  Field,
+  FieldResolver,
+  InputType,
+  Mutation,
+  Query,
+  Resolver,
+  Root,
+} from 'type-graphql';
 
 import Video from './Video';
 
 import VideoSchema from '../../models/VideoSchema';
+import CategorySchema from '../../models/CategorySchema';
+
+import Category from '../category/Category';
 
 @InputType()
 class VideoInput {
@@ -29,6 +41,11 @@ class VideoResolver {
     const video = await VideoSchema.create(videoInput);
 
     return video;
+  }
+
+  @FieldResolver(() => Category)
+  async category(@Root() video: any) {
+    return await CategorySchema.findById(video.category);
   }
 }
 
